@@ -1,0 +1,181 @@
+.onest {
+  font-family: "Onest", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #675fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-thumb::-webkit-slider-thumb {
+  appearance: none;
+  height: 24px; /* thumb height */
+  width: 24px; /* thumb width */
+  background-color: #675fff; /* thumb color */
+  border-radius: 9999px; /* fully rounded */
+  border: none;
+  cursor: pointer;
+  /* adjust position if needed */
+}
+
+.custom-thumb::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  background-color: #675fff;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+body {
+  height: 100%;
+  background-color: #fafbfd;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e1e4ea;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #675fff;
+  border-radius: 8px;
+  border: 2px solid #e1e4ea;
+}
+
+.offer {
+  background-image: url("./assets/svg/cancelpage_backgound.svg");
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.thinking {
+  width: 12px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: dot 1s infinite linear;
+}
+@keyframes dot {
+  100% {
+    background: #3737377f;
+  }
+}
+
+.three-dots {
+  margin-left: 10px;
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+@keyframes l5 {
+  0% {
+    box-shadow: 20px 0 #b1d0e8, -20px 0 rgb(197, 177, 177);
+    background: #d2f9f9;
+  }
+  33% {
+    box-shadow: 20px 0 rgb(197, 177, 177) 0e8, -20px 0 #0002;
+    background: #d2f9f9;
+  }
+  66% {
+    box-shadow: 20px 0 #d2f9f9, -20px 0 rgb(197, 177, 177);
+    background: #d2f9f9;
+  }
+  100% {
+    box-shadow: 20px 0 #d2f9f9, -20px 0 rgb(197, 177, 177);
+    background: rgb(197, 177, 177);
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 3px;
+  background-color: transparent;
+  border: 2px solid #5a687c;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #675fff;
+  border: 2px solid #675fff;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.react-datepicker-popper {
+  left: 45% !important;
+}
