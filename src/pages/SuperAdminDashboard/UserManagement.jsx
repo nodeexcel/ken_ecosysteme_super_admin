@@ -123,7 +123,7 @@ const DeleteIcon = () => (
 export default function UserManagement() {
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
+    // password: '',
     subscriptionType: '',
     subscriptionDurationType: '',
     role: 'admin',
@@ -254,7 +254,7 @@ export default function UserManagement() {
   )
 
   const InputFields = [{ label: "Email", placeholder: "Enter email", value: formData.email, name: "email" },
-  { label: "Password", placeholder: "Enter password", value: formData.password, name: "password" },
+  // { label: "Password", placeholder: "Enter password", value: formData.password, name: "password" },
   { label: "Role", placeholder: "Enter role", value: formData.role, name: "role" },
   { label: "Subscription Type", placeholder: "Enter subscription type", value: formData.subscriptionType, name: "subscriptionType" },
   { label: "Subscription Status", placeholder: "Enter subscription status", value: formData.subscriptionStatus, name: "subscriptionStatus" },
@@ -286,7 +286,7 @@ export default function UserManagement() {
     const newErrors = {};
     if (!formData.email) newErrors.email = 'Email is required';
     if ((!validateEmail(formData.email))) newErrors.email = 'Email is invalid';
-    if (!formData.password) newErrors.password = 'Password is required';
+    // if (!formData.password) newErrors.password = 'Password is required';
     if (!formData.subscriptionType) newErrors.subscriptionType = 'Subscription Type is required';
     if (!formData.subscriptionDurationType) newErrors.subscriptionDurationType = 'Subscription Duration Type is required';
 
@@ -366,7 +366,7 @@ export default function UserManagement() {
   const handleReset = () => {
     setFormData({
       email: '',
-      password: '',
+      // password: '',
       subscriptionType: '',
       subscriptionDurationType: ''
     })
@@ -634,7 +634,7 @@ export default function UserManagement() {
                     />
                     {error?.email && <p className="text-[#FF3B30] py-1">{error?.email}</p>}
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="block text-[#1E1E1E] text-sm font-medium mb-2">
                       Password
                     </label>
@@ -647,7 +647,7 @@ export default function UserManagement() {
                       className={`w-full bg-white p-2 rounded-lg border ${(error?.password) ? 'border-red-500' : 'border-[#e1e4ea]'} focus:outline-none focus:border-[#675FFF]`}
                     />
                     {error?.password && <p className="text-[#FF3B30] py-1">{error?.password}</p>}
-                  </div>
+                  </div> */}
                   <div>
                     <label className="block text-[#1E1E1E] text-sm font-medium mb-2">
                       Subscription Type
