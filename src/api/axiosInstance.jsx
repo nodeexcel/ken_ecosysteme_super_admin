@@ -45,11 +45,15 @@ axiosInstance.interceptors.response.use(
       try {
         const refreshToken = localStorage.getItem('refreshToken');
         const response = await axios.post(
-          `${import.meta.env.VITE_BASE_URL}/api/auth/refresh-token`,
-          { token: refreshToken }
+          `${import.meta.env.VITE_BASE_URL}/refresh`,
+          {
+            headers: {
+              token: refreshToken
+            }
+          }
         );
 
-        const newAccessToken = response.data.accessToken;
+        const newAccessToken = response.data.access_token;
 
         // Save new token and update original request
         localStorage.setItem('token', newAccessToken);

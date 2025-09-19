@@ -21,7 +21,7 @@ function SuperDashboard() {
             getCountryCode()
             dispatch(loginSuccess({ token: token }))
         }else{
-            navigate("/")
+           // navigate("/")
         }
     }, [token])
 

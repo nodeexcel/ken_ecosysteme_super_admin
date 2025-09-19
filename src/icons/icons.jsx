@@ -3077,11 +3077,11 @@ export const UserIcon = () => {
     <svg width="44" height="32" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M25.125 11C25.125 11.8288 24.7958 12.6237 24.2097 13.2097C23.6237 13.7958 22.8288 14.125 22 14.125C21.1712 14.125 20.3764 13.7958 19.7903 13.2097C19.2043 12.6237 18.875 11.8288 18.875 11C18.875 10.1712 19.2043 9.37634 19.7903 8.79029C20.3764 8.20424 21.1712 7.875 22 7.875C22.8288 7.875 23.6237 8.20424 24.2097 8.79029C24.7958 9.37634 25.125 10.1712 25.125 11ZM15.7509 22.765C15.7776 21.1253 16.4478 19.5618 17.6168 18.4117C18.7859 17.2616 20.3601 16.6171 22 16.6171C23.6399 16.6171 25.2142 17.2616 26.3832 18.4117C27.5522 19.5618 28.2224 21.1253 28.2492 22.765C26.2887 23.664 24.1568 24.1279 22 24.125C19.77 24.125 17.6534 23.6383 15.7509 22.765Z" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    
+
   )
 }
 
-export const ProIcon = () => { 
+export const ProIcon = () => {
   return (
     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_17783_16673)">
@@ -3145,7 +3145,7 @@ export const ProIcon = () => {
 
     )
   }
-  
+
   export const EnterpriseIcon = () => {
     return (
       <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">

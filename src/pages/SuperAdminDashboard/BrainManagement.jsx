@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Search, ChevronDown, Eye, Download, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { deleteKnowledgeBase, deleteUserKnowledgeBase, getUsersKnowledge, getUsersKnowledgeById } from "../../api/dashboard";
 
 // Mock data for AI Brain Management
 const brainData = [
@@ -52,6 +53,52 @@ const BrainManagement = () => {
   const [selectedStatus, setSelectedStatus] = useState("Status");
   const [users, setUsers] = useState(brainData);
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
+  const token = localStorage.getItem("token")
+
+
+  useEffect(() => {
+    if (token) fetchUsersKnowledge()
+  }, [token])
+
+
+  const fetchUsersKnowledge = async () => {
+    try {
+      const response = await getUsersKnowledge()
+      setData(response?.data)
+      console.log(response?.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  const fetchUsersKnowledgeById = async () => {
+    try {
+      const response = await getUsersKnowledgeById()
+      console.log(response?.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const fetchDeleteUserKnowledgeBase = async () => {
+    try {
+      const response = await deleteUserKnowledgeBase()
+      console.log(response?.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const fetchDeleteKnowledgeBase = async () => {
+    try {
+      const response = await deleteKnowledgeBase()
+      console.log(response?.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleToggleUser = (userId) => {
     setUsers(users.map(user =>
@@ -103,29 +150,29 @@ const BrainManagement = () => {
               {/* Filters */}
               <div className="flex flex-col sm:flex-row gap-4 mb-6 w-full">
                 <div className="flex flex-row gap-4 w-[290px] h-[34px]">
-                <div className="relative">
-                  <select
-                    value={selectedStatus}
-                    onChange={(e) => setSelectedStatus(e.target.value)}
-                    className="appearance-none bg-white border border-[#e1e4ea] rounded-lg px-4 py-2 pr-10 text-[#5A687C] focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[120px]"
-                  >
-                    <option value="Status">Status</option>
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                  </select>
-                  <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-                </div>
+                  <div className="relative">
+                    <select
+                      value={selectedStatus}
+                      onChange={(e) => setSelectedStatus(e.target.value)}
+                      className="appearance-none bg-white border border-[#e1e4ea] rounded-lg px-4 py-2 pr-10 text-[#5A687C] focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[120px]"
+                    >
+                      <option value="Status">Status</option>
+                      <option value="Active">Active</option>
+                      <option value="Inactive">Inactive</option>
+                    </select>
+                    <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                  </div>
 
-                <div className="relative flex-1 max-w-md bg-[#FFFFFF] rounded-lg ">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 " />
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-[#e1e4ea] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#5A687C] placeholder-[#5A687C]"
-                  />
-                </div>
+                  <div className="relative flex-1 max-w-md bg-[#FFFFFF] rounded-lg ">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 " />
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2 border border-[#e1e4ea] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#5A687C] placeholder-[#5A687C]"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -193,23 +240,20 @@ const BrainManagement = () => {
                           </td>
                           <td className="py-4 px-4 w-1/6">
                             <div className="flex items-center justify-center gap-3">
-                              <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                                user.isActive
-                                  ? "bg-green-100 text-green-800"
-                                  : "bg-gray-100 text-gray-800"
-                              }`}>
+                              <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${user.isActive
+                                ? "bg-green-100 text-green-800"
+                                : "bg-gray-100 text-gray-800"
+                                }`}>
                                 {user.status}
                               </span>
                               <button
                                 onClick={() => handleToggleUser(user.id)}
-                                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-                                  user.isActive ? "bg-blue-600" : "bg-gray-200"
-                                }`}
+                                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${user.isActive ? "bg-blue-600" : "bg-gray-200"
+                                  }`}
                               >
                                 <span
-                                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                    user.isActive ? "translate-x-6" : "translate-x-1"
-                                  }`}
+                                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${user.isActive ? "translate-x-6" : "translate-x-1"
+                                    }`}
                                 />
                               </button>
                             </div>
@@ -259,4 +303,4 @@ const BrainManagement = () => {
   );
 };
 
-  export default BrainManagement;
+export default BrainManagement;

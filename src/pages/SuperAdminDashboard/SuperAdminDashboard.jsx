@@ -20,15 +20,15 @@ const staticData = [
     list: [
       { label: "Total Users", icon: <SuperAdminTotalusers />, value: 1532, key: "total_users" },
       { label: "Active Agents", icon: <SuperAdminActiveAgents />, value: 305, key: "total_active_agents" },
-      {
-        label: "Daily Messages",
-        icon: <SuperAdminDailyMessages />,
-        value: 1820,
-        key: "appointment_agents"
-      },
-      { label: "Daily Emails", icon: <SuperAdminDailyEmails />, value: 1095, key: "daily_emails" },
+      // {
+      //   label: "Daily Messages",
+      //   icon: <SuperAdminDailyMessages />,
+      //   value: 1820,
+      //   key: "appointment_agents"
+      // },
+      // { label: "Daily Emails", icon: <SuperAdminDailyEmails />, value: 1095, key: "daily_emails" },
       { label: "Daily Calls", icon: <SuperAdminDailyCalls />, value: 568, key: "calls" },
-      { label: "Daily Subscription", icon: <SuperAdminDailySubscription />, value: 500, key: "phone_agents" },
+      // { label: "Daily Subscription", icon: <SuperAdminDailySubscription />, value: 500, key: "phone_agents" },
       { label: "Profile Delete Count", icon: <SuperAdminProfileDeleteCount />, value: 10, key: "user_deletd" },
     ],
   },
@@ -40,9 +40,9 @@ const Tableheaders = [
 ];
 
 const TableData = [
-  { agentType: "Appointment", count: 120 },
+  { agentType: "Appointment", count: 120, key: "appointment_agents" },
   { agentType: "Emailing", count: 150 },
-  { agentType: "Telephony", count: 35 },
+  { agentType: "Telephony", count: 35, key: "phone_agents" },
 ];
 
 const doughnutData = {
@@ -105,7 +105,7 @@ const SuperAdminDashboard = () => {
             localStorage.clear()
             navigate("/")
           }}
-          className="bg-[#675FFF] hover:bg-[#5A4FE5] text-white rounded-lg text-[16px] cursor-pointer px-2 py-1 transition-colors"
+          className="bg-[#675FFF] hover:bg-[#5A4FE5] text-white rounded-lg text-[16px] cursor-pointer px-3 py-1 transition-colors"
         >
           Logout
         </button>
@@ -132,7 +132,7 @@ const SuperAdminDashboard = () => {
                       <div className="flex gap-4 p-3 items-center">
                         {each.icon}
                         <p className="font-[600] text-[#1E1E1E] text-[24px]">
-                          {data ? data?.[each.key] : 0}
+                          {data?.[each.key] ?? 0}
                         </p>
                       </div>
                     </div>
@@ -142,7 +142,7 @@ const SuperAdminDashboard = () => {
             ))}
 
             {/* Active Agents & Health Indicators */}
-            <div className="flex flex-col lg:flex-row gap-4 max-w-[1180px]">
+            <div className="flex flex-col lg:flex-row gap-4 max-w-lg w-full">
               {/* Active Agents Table */}
               <div className="flex-1 border border-[#e1e4ea] bg-[#FFFFFF] rounded-lg p-6">
                 <h1 className="text-[#1E1E1E] text-[20px] font-[600] mb-6 mt-1.5">
@@ -168,14 +168,14 @@ const SuperAdminDashboard = () => {
                     {TableData.map((row, index) => (
                       <tr key={index} className={index === 0 ? "" : "border-t border-[#e1e4ea]"}>
                         <td className="px-7 py-2 text-left">{row.agentType}</td>
-                        <td className="px-7 py-2 text-right">{row.count}</td>
+                        <td className="px-7 py-2 text-right">{data?.[row.key] ?? 0}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
 
-              <div className="flex-1 border border-[#e1e4ea] bg-[#FFFFFF] rounded-lg p-6">
+              {/* <div className="flex-1 border border-[#e1e4ea] bg-[#FFFFFF] rounded-lg p-6">
                 <h1 className="text-[#1E1E1E] text-[18px] font-[600] mb-4">
                   Health Indicators
                 </h1>
@@ -209,7 +209,7 @@ const SuperAdminDashboard = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </>
         )}
