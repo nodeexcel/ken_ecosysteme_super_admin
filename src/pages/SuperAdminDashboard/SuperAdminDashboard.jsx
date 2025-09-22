@@ -99,7 +99,7 @@ const SuperAdminDashboard = () => {
     <div className="w-full h-full overflow-auto">
 
       <div className="w-full flex justify-between items-center mt-0.5 border-b border-[#E1E4EA] font-medium p-2 ml-0 m-0 font-Semibold text-[#1E1E1E] text-[26px]">
-        <h1 className="font-medium font-Semibold text-[#1E1E1E] text-[26px]">Dashboard</h1>
+        <h1 className="font-medium font-Semibold text-[#1E1E1E] text-[26px] lg:pl-0 pl-10">Dashboard</h1>
         <button
           onClick={() => {
             localStorage.clear()
@@ -107,7 +107,7 @@ const SuperAdminDashboard = () => {
           }}
           className="bg-[#675FFF] hover:bg-[#5A4FE5] text-white rounded-lg text-[16px] cursor-pointer px-3 py-1 transition-colors"
         >
-          Logout
+          Log Out
         </button>
       </div>
       <div className="w-full p-4 flex flex-col gap-4">

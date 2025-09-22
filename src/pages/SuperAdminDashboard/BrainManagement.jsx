@@ -133,7 +133,7 @@ const BrainManagement = () => {
   return (
     <div className="w-full h-full overflow-auto">
       <div className="m-0">
-        <h1 className="w-full mt-0.5 border-b border-[#E1E4EA] font-medium p-2 ml-0 m-0 font-Semibold text-[#1E1E1E] text-[26px]">
+        <h1 className="w-full mt-0.5 border-b border-[#E1E4EA] font-medium p-2 ml-0 m-0 font-Semibold text-[#1E1E1E] text-[26px] md:pl-2  pl-12">
           AI Brain Management
         </h1>
       </div>

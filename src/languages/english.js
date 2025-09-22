@@ -12,7 +12,7 @@ const englishTranslation = {
   hr: "HR",
   accouting: "Accounting",
   seo_name: "SEO",
-  logout: "Logout",
+  logout: "Log Out",
   request_new_feature: "Request New Feature",
   ai_agents_heading: "Your AI agents are ready to boost your business.",
   home: "Home",

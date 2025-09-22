@@ -64,7 +64,7 @@ const handleInputChange = (field, value) => {
     <div className="w-full h-full overflow-auto">
       {/* Header */}
       <div className="m-0">
-        <h1 className="w-full mt-0.5 border-b border-[#E1E4EA] font-medium p-2 ml-0 m-0 text-[#1E1E1E] text-[26px]">
+        <h1 className="w-full mt-0.5 border-b border-[#E1E4EA] font-medium p-2  text-[#1E1E1E] text-[26px] md:ml-0 ml-10 font-Semibold">
           Settings
         </h1>
       </div>

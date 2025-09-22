@@ -197,7 +197,7 @@ const BillingSubscription = () => {
   return (
    <div className="w-full h-full overflow-auto">
       <div className="m-0">
-        <h1 className="w-full mt-0.5 border-b border-[#E1E4EA] font-medium p-2 ml-0 m-0 font-Semibold text-[#1E1E1E] text-[26px]">
+        <h1 className="w-full mt-0.5 border-b border-[#E1E4EA] font-medium p-2  m-0 font-Semibold text-[#1E1E1E] text-[26px] md:ml-0 ml-10">
           Billing & Subscription
         </h1>
       </div>
